@@ -1,1 +1,1 @@
-# This repository contains some example on useReducer
+# This repository contains some examples on useReducer

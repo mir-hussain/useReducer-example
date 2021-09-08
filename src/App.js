@@ -1,6 +1,11 @@
 import React from "react";
+import ExampleOne from "./ExampleOne";
 const App = () => {
-  return <h1>Mir Hussain</h1>;
+  return (
+    <>
+      <ExampleOne />
+    </>
+  );
 };
 
 export default App;
