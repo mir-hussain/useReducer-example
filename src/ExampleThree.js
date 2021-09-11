@@ -1,15 +1,20 @@
 import React, { useReducer } from "react";
 
 const initialValue = {
-  counter: 0,
+  counterOne: 0,
+  counterTwo: 0,
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "increment":
-      return { ...state, counter: state.counter + action.value };
-    case "decrement":
-      return { ...state, counter: state.counter - action.value };
+    case "incrementCounterOne":
+      return { ...state, counterOne: state.counterOne + action.value };
+    case "decrementCounterOne":
+      return { ...state, counterOne: state.counterOne - action.value };
+    case "incrementCounterTwo":
+      return { ...state, counterTwo: state.counterTwo + action.value };
+    case "decrementCounterTwo":
+      return { ...state, counterTwo: state.counterTwo - action.value };
     default:
       return state;
   }
@@ -18,14 +23,34 @@ const ExampleThree = () => {
   const [count, dispatch] = useReducer(reducer, initialValue);
   return (
     <div>
-      <h1>This Counter is created with reducer.</h1>
-      <h2>Count = {count.counter}</h2>
-      <button onClick={() => dispatch({ type: "increment", value: 1 })}>
-        Increment
-      </button>
-      <button onClick={() => dispatch({ type: "decrement", value: 1 })}>
-        Decrement
-      </button>
+      <div>
+        <h1>This Counter is created with reducer.</h1>
+        <h2>Count One = {count.counterOne}</h2>
+        <button
+          onClick={() => dispatch({ type: "incrementCounterOne", value: 1 })}
+        >
+          Increment Counter One
+        </button>
+        <button
+          onClick={() => dispatch({ type: "decrementCounterOne", value: 1 })}
+        >
+          Decrement Counter One
+        </button>
+      </div>
+      <div>
+        <h1>This Counter is created with reducer.</h1>
+        <h2>Count Two = {count.counterTwo}</h2>
+        <button
+          onClick={() => dispatch({ type: "incrementCounterTwo", value: 1 })}
+        >
+          Increment Counter Two
+        </button>
+        <button
+          onClick={() => dispatch({ type: "decrementCounterTwo", value: 1 })}
+        >
+          Decrement Counter Two
+        </button>
+      </div>
     </div>
   );
 };
